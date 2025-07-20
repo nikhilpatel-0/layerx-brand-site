@@ -34,7 +34,7 @@ const journey = [
 ];
 
 const About = () => {
-  useLenisScroll();
+  useLenisScroll(); // 🔄 Smooth scroll hook
 
   const sectionRefs = useRef([]);
 
@@ -45,10 +45,9 @@ const About = () => {
       const image = el.querySelector(".journey-img");
       const text = el.querySelector(".journey-text");
 
-      // Image animation
       gsap.fromTo(
         image,
-        { y: 80, opacity: 0, scale: 0.95 },
+        { y: 100, opacity: 0, scale: 0.95 },
         {
           y: 0,
           opacity: 1,
@@ -57,27 +56,24 @@ const About = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         }
       );
 
-      // Text animation (fade + x-slide)
       gsap.fromTo(
         text,
-        { opacity: 0, x: -100 },
+        { x: -80, opacity: 0 },
         {
-          opacity: 1,
           x: 0,
+          opacity: 1,
           duration: 1.2,
           ease: "power4.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -102,19 +98,17 @@ const About = () => {
             index % 2 !== 0 ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div className="w-full md:w-[50%] journey-img">
+          <div className="w-full md:w-[50%]">
             <img
               src={section.img}
               alt={section.title}
-              className="rounded-xl shadow-xl will-change-transform"
+              className="rounded-xl shadow-xl journey-img"
             />
           </div>
 
           <div className="md:w-[50%] space-y-4 text-center md:text-left journey-text">
             <h2 className="text-2xl font-bold">{section.title}</h2>
-            <p className="text-gray-300 text-base md:text-lg">
-              {section.text}
-            </p>
+            <p className="text-gray-300 text-base md:text-lg">{section.text}</p>
           </div>
         </div>
       ))}
