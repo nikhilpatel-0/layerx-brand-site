@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import products from "../data/products";
 import HeroSection from "../components/HeroSection";
+import MarqueeBanner from "../components/MarqueeBanner";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,8 +32,9 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
+      <MarqueeBanner />
 
-      {/* USP Section */}
+      
       <section className="section-reveal bg-[#1e1e1e] text-white px-6 md:px-20 py-20 text-center space-y-12">
         <h2 className="text-3xl md:text-4xl font-bold">What Makes Us Different?</h2>
         <div className="grid md:grid-cols-3 gap-10">
@@ -51,7 +53,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products */}
+     
       <section className="section-reveal bg-[#121212] text-white px-6 md:px-20 py-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">🔥 Trending Products</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -75,7 +77,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Journey Teaser */}
+      
       <section className="section-reveal bg-[#1e1e1e] text-white px-6 md:px-20 py-20 text-center space-y-6">
         <h2 className="text-3xl md:text-4xl font-bold">👣 Creator to Brand Journey</h2>
         <p className="text-gray-400 text-lg max-w-3xl mx-auto">
@@ -88,7 +90,7 @@ const Home = () => {
         </Link>
       </section>
 
-      {/* Newsletter CTA */}
+      
       <section className="section-reveal bg-[#121212] text-white px-6 md:px-20 py-20 text-center space-y-6">
         <h2 className="text-3xl md:text-4xl font-bold">Join The Movement</h2>
         <p className="text-gray-400">Be the first to know about new drops, behind-the-scenes & exclusive offers.</p>

@@ -34,12 +34,12 @@ const journey = [
 ];
 
 const About = () => {
-  useLenisScroll(); // 🔄 Smooth scroll hook
+  useLenisScroll(); 
 
   const sectionRefs = useRef([]);
 
   useEffect(() => {
-    // ✅ Slight delay ensures refs are populated
+   
     const timer = setTimeout(() => {
       sectionRefs.current.forEach((el) => {
         if (!el) return;
@@ -80,7 +80,7 @@ const About = () => {
           }
         );
       });
-    }, 100); // 100ms delay to ensure refs are available
+    }, 100); 
 
     return () => {
       clearTimeout(timer);

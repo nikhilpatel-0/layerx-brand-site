@@ -14,12 +14,12 @@ const Navbar = () => {
       className="w-full fixed top-0 left-0 z-50 bg-[#121212] text-white shadow-md"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
-        {/* Logo */}
+        
         <h1 className="text-2xl font-bold">
           <Link to="/">LayerX</Link>
         </h1>
 
-        {/* Desktop Links */}
+        
         <ul className="hidden md:flex space-x-10 text-sm font-medium">
           <motion.li whileHover={{ scale: 1.05 }} className="relative group">
             <Link to="/" className="hover:text-gray-400 transition-all">Home</Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
           </motion.li>
         </ul>
 
-        {/* Hamburger Icon */}
+       
         <div className="md:hidden">
           {open ? (
             <X size={28} onClick={() => setOpen(false)} />
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+   
       {open && (
         <motion.div
           className="md:hidden bg-[#121212] px-6 pb-4"

@@ -1,3 +1,4 @@
+
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products"; // ✅ update the path as per your structure
 import { motion } from "framer-motion";
@@ -24,7 +25,7 @@ const ProductDetail = () => {
       transition={{ duration: 0.7 }}
       className="min-h-screen bg-[#121212] text-white px-6 md:px-20 py-24"
     >
-      {/* Back Button */}
+     
       <button
         onClick={() => navigate(-1)}
         className="text-sm mb-8 text-gray-400 hover:text-white transition"
@@ -33,14 +34,14 @@ const ProductDetail = () => {
       </button>
 
       <div className="flex flex-col md:flex-row items-center gap-10">
-        {/* Image */}
+       
         <img
           src={product.image}
           alt={product.name}
           className="w-[280px] sm:w-[350px] md:w-[450px] rounded-xl shadow-xl object-contain"
         />
 
-        {/* Info */}
+      
         <div className="text-center md:text-left space-y-4">
           <h1 className="text-3xl sm:text-4xl font-bold">{product.name}</h1>
           <p className="text-gray-400">{product.description}</p>

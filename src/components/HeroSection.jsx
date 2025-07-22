@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"; // ✅ Add this at the top
+import { Link } from "react-router-dom";
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const HeroSection = () => {
-  // Prevent auto scroll on reload
+ 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen overflow-hidden bg-[#121212] text-white flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 pt-20 pb-10">
 
-      {/* BIG BACKGROUND TEXT */}
+  
       <motion.h1
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 0.08, scale: 1 }}
@@ -23,7 +23,7 @@ const HeroSection = () => {
         LAYERX
       </motion.h1>
 
-      {/* LEFT: INTRO + CTA */}
+   
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         animate={{ opacity: 1, x: 0 }}
@@ -37,7 +37,7 @@ const HeroSection = () => {
           Elevating streetwear with bold identity and innovation.
         </p>
 
-        {/* CTA Button */}
+    
         <Link to="/products">
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -47,7 +47,7 @@ const HeroSection = () => {
           </motion.button>
         </Link>
 
-        {/* Newsletter */}
+      
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
           <input
             type="email"
@@ -60,7 +60,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* RIGHT: MODEL IMAGE + SOCIAL + BADGE */}
+    
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,17 +73,17 @@ const HeroSection = () => {
           className="w-[220px] sm:w-[280px] md:w-[420px] object-contain"
         />
 
-        {/* Latest Drop Badge */}
-        <motion.div
+     
+        {/* <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
           className="absolute -top-4 left-1/2 -translate-x-1/2 md:top-6 md:left-6 md:translate-x-0 bg-white text-black px-3 py-1 rounded-full text-sm font-semibold shadow"
         >
           🔥 Latest Drop
-        </motion.div>
+        </motion.div> */}
 
-        {/* Social Icons */}
+      
         <div className="absolute bottom-6 left-4 flex gap-4 text-white text-xl">
           <motion.a
             href="https://instagram.com"
