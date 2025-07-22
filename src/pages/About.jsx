@@ -39,47 +39,51 @@ const About = () => {
   const sectionRefs = useRef([]);
 
   useEffect(() => {
-    sectionRefs.current.forEach((el) => {
-      if (!el) return;
+    // ✅ Slight delay ensures refs are populated
+    const timer = setTimeout(() => {
+      sectionRefs.current.forEach((el) => {
+        if (!el) return;
 
-      const image = el.querySelector(".journey-img");
-      const text = el.querySelector(".journey-text");
+        const image = el.querySelector(".journey-img");
+        const text = el.querySelector(".journey-text");
 
-      gsap.fromTo(
-        image,
-        { y: 100, opacity: 0, scale: 0.95 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+        gsap.fromTo(
+          image,
+          { y: 100, opacity: 0, scale: 0.95 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        text,
-        { x: -80, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+        gsap.fromTo(
+          text,
+          { x: -80, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, 100); // 100ms delay to ensure refs are available
 
     return () => {
+      clearTimeout(timer);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
