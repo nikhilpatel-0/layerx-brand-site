@@ -73,16 +73,6 @@ const HeroSection = () => {
           className="w-[220px] sm:w-[280px] md:w-[420px] object-contain"
         />
 
-     
-        {/* <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="absolute -top-4 left-1/2 -translate-x-1/2 md:top-6 md:left-6 md:translate-x-0 bg-white text-black px-3 py-1 rounded-full text-sm font-semibold shadow"
-        >
-          🔥 Latest Drop
-        </motion.div> */}
-
       
         <div className="absolute bottom-6 left-4 flex gap-4 text-white text-xl">
           <motion.a

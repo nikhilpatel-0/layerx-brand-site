@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import MarqueeBanner from './components/MarqueeBanner';
 import Login from './pages/LoginSignup';
+import Cart from './pages/Cart';
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       {!isAboutPage && <MarqueeBanner />}
       <Footer />
