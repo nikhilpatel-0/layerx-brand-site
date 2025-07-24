@@ -1,10 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const updateCart = () => {
+      const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(savedCart.length);
+    };
+
+    updateCart();
+
+    window.addEventListener("cartUpdated", updateCart);
+    return () => window.removeEventListener("cartUpdated", updateCart);
+  }, []);
 
   return (
     <motion.nav
@@ -35,6 +48,16 @@ const Navbar = () => {
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
             </motion.li>
           </ul>
+
+          {/* Cart Icon */}
+          <Link to="/cart" className="relative group">
+            <ShoppingCart size={24} className="hover:text-gray-400 transition" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {cartCount}
+              </span>
+            )}
+          </Link>
 
           {/* Auth Button */}
           <div className="ml-6">
@@ -72,6 +95,9 @@ const Navbar = () => {
             </li>
             <li className="hover:text-gray-400">
               <Link to="/about" onClick={() => setOpen(false)}>About</Link>
+            </li>
+            <li className="hover:text-gray-400">
+              <Link to="/cart" onClick={() => setOpen(false)}>Cart ({cartCount})</Link>
             </li>
           </ul>
 

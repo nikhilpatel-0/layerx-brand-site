@@ -23,9 +23,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+         
+         <Route path="/login" element={<Login />} />
       </Routes>
       {!isAboutPage && <MarqueeBanner />}
       <Footer />

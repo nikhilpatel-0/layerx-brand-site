@@ -8,6 +8,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [showCartToast, setShowCartToast] = useState(false);
 
   const product = products.find((p) => p.id === parseInt(id));
 
@@ -36,7 +37,13 @@ const ProductDetail = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = [...existingCart, product];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    navigate("/cart"); // Navigate to Cart page
+    
+    setShowCartToast(true);
+    setTimeout(() => {
+      setShowCartToast(false);
+    }, 2500);
+
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   return (
@@ -135,6 +142,20 @@ const ProductDetail = () => {
                 </div>
               )}
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Toast Notification for "Added to Cart" */}
+      <AnimatePresence>
+        {showCartToast && (
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            className="fixed bottom-6 right-6 z-50 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg"
+          >
+            ✅ Product added to cart!
           </motion.div>
         )}
       </AnimatePresence>

@@ -40,7 +40,7 @@ const useLenisScroll = () => {
 
     return () => {
       lenis.destroy();
-      ScrollTrigger.kill();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // ✅ Fix here
     };
   }, []);
 };
